@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "stylesheet" type = "text/css" href = "user.css">
+        <script src = "authenticate.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body onload = "isLoggedIn()">  
+        
+
+        <div class = "top">
+            <h1 class = "welcome-heading"><b>Welcome to OpenBook</b></h1>
+            <button type = "button" class = "btn btn-info btn-lg start-btn" data-toggle = "modal" data-target = "#start-modal">Let's start</button>
+            <div id = "start-modal" class = "modal fade entry-form" role = "dialog">
+                <div class = "modal-body" >
+                    <div class = "modal-content">
+                        <div class = "modal-header">
+                            <div class = "row justify-content-center">
+                                <div class = "col-4 ">
+                                    <h1>Are you new here?</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "modal-body">
+                            <div class = "row justify-content-center">
+                                <div class = "col-sm-6">
+                                    <button id = "yes-btn" class = "btn" data-toggle = "modal" data-target = "#register-modal" data-dismiss = "modal">YES</button>
+                                </div>
+                                <div class = "col-sm-6">
+                                    <button id = "no-btn" class = "btn" data-toggle = "modal" data-target = "#login-modal" data-dismiss = "modal">NO</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id = "login-modal" class = "modal fade entry-form" role = "dialog">
+                <div class = "modal-body">
+                    <div class = "modal-content">
+                        <div class = "modal-header">
+                            <div class = "row justify-content-center">
+                                <div class = "col-4 ">
+                                    <h1>Gimme some details</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "modal-body">
+                            <div class = "row justify-content-center">
+                                <div class = "col-sm-3">
+                                    <label>Email-ID:</label>
+                                </div>
+                                <div class = "col-sm-7"> 
+                                    <input type = "text" class = "form-control" id = "email-login">
+                                </div>
+                            </div>
+                            <div class = "row justify-content-center">
+                                <div class = "col-sm-3">
+                                    <label>Password:</label>
+                                </div>
+                                <div class = "col-sm-7">
+                                    <input type = "password" class = "form-control" id = "pwd-login">
+                                </div>
+                            </div>
+                            <button class = "btn btn-default btn-info btn-lg login-btn" onclick = "loginUser(event)">Let's go</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id = "register-modal" class = "modal fade entry-form" role = "dialog">
+                <div class = "modal-body">
+                    <div class = "modal-content">
+                        <div class = "modal-header">
+                            <div class = "row justify-content-center">
+                                <div class = "col-4 ">
+                                    <h1>Gimme some details</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "modal-body">
+                            <div class = "row justify-content-center">
+                                <div class = "col-sm-3">
+                                    <label>Email-ID:</label>
+                                </div>
+                                <div class = "col-sm-7"> 
+                                    <input type = "text" class = "form-control" id = "email-register">
+                                </div>
+                            </div>
+                            <div class = "row justify-content-center">
+                                <div class = "col-sm-3">
+                                    <label>Name:</label>
+                                </div>
+                                <div class = "col-sm-7">
+                                    <input type = "text" class = "form-control" id = "username-register">
+                                </div>
+                            </div>
+                            <div class = "row justify-content-center">
+                                <div class = "col-sm-3">
+                                    <label>Password:</label>
+                                </div>
+                                <div class = "col-sm-7">
+                                    <input type = "password" class = "form-control" id = "pwd-register">
+                                </div>
+                            </div>
+                            <button class = "btn btn-default btn-info btn-lg login-btn" onclick = "registerUser(event)">Let's go</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-analytics.js"></script>
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyAwlFVG_etFus-xp3Pg1lgZI33uPfj2tVw",
+                authDomain: "openbook-299b9.firebaseapp.com",
+                databaseURL: "https://openbook-299b9.firebaseio.com",
+                projectId: "openbook-299b9",
+                storageBucket: "openbook-299b9.appspot.com",
+                messagingSenderId: "419326003417",
+                appId: "1:419326003417:web:6021a16d79059774e2d6c8",
+                measurementId: "G-Y6QW8FNRRB"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+        </script>
+    </body>
+</html>

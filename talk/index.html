@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "stylesheet" type = "text/css" href = "styles.css">
+        <script src = "converse.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src =  "converse.js"></script>
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body onload = "loadMessages()"> 
+        <div class = "container heading-container">
+            <div class = "row">
+                <div class = "col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+                    <h1 class = "welcome-heading"><b>Welcome to OpenBook</b></h1>
+                </div>
+                <div class = "col-md-1 col-sm-1">
+                    <button class = "btn btn-info logout-btn" onclick = "logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+        <div class = "container">
+            <div class = "row justify-content-center chat-box-container">
+                <div class = "col-md-8 col-md-offset-2 chat-history" id = "chat-box">
+                    <!--This is filled by the messages-->
+                </div>
+                <div class = "col-md-7 col-md-offset-2 col-sm-10">
+                    <textarea class = "form-control" rows = "2" placeholder = "Type your message" id = "message" onkeyup = "msgTypeHandle(event)"></textarea>
+                </div>
+                <div class = "col-md-1 col-sm-1">
+                    <button class = "btn btn-info send-btn" onclick = "postMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-analytics.js"></script>
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyAwlFVG_etFus-xp3Pg1lgZI33uPfj2tVw",
+                authDomain: "openbook-299b9.firebaseapp.com",
+                databaseURL: "https://openbook-299b9.firebaseio.com",
+                projectId: "openbook-299b9",
+                storageBucket: "openbook-299b9.appspot.com",
+                messagingSenderId: "419326003417",
+                appId: "1:419326003417:web:6021a16d79059774e2d6c8",
+                measurementId: "G-Y6QW8FNRRB"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+        </script>
+    </body>
+</html>
